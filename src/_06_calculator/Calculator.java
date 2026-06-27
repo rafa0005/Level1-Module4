@@ -1,12 +1,15 @@
 package _06_calculator;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Calculator {
+public class Calculator implements ActionListener {
 
 	JFrame frame = new JFrame();
 	
@@ -18,23 +21,28 @@ public class Calculator {
 	
 	JTextField field2 = new JTextField(20);
 	
-	JButton add = new JButton("add");
+	JButton plus = new JButton("add");
 	JButton subtract = new JButton("subtract");
 	JButton multiply = new JButton("multiply");
 	JButton divide = new JButton("divide");
 	
 	
 	
-	public void add(){
-		
+	public void createUI(){
+		frame.setVisible(true);
 		frame.add(panel);
 		panel.add(label);
 		panel.add(field1);
 		panel.add(field2);
-		panel.add(add);
+		panel.add(plus);
 		panel.add(divide);
 		panel.add(multiply);
 		panel.add(subtract);
+		plus.addActionListener(this);
+		subtract.addActionListener(this);
+		multiply.addActionListener(this);
+		divide.addActionListener(this);
+		
 	}
 	
 	public void subtract(){
@@ -51,4 +59,10 @@ public class Calculator {
 	
 	
 }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
